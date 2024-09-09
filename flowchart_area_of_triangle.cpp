@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+ 
+ int main(){
+ 	//VALUE
+ 	int x = 4, y = 2;
+ 	
+ 	//INITIALIZE X,Y 
+ 	cout << "                  ALGORITHM TO GET THE SUM, DIFFERENCE, PRODUCT, QUOTIENT AND REMAINDER OF TWO INTEGERS " <<endl<<endl;
+ 	int sum = x + y;
+ 	int difference = x - y; 
+ 	int product = x * y;
+ 	int quotient = x / y;
+ 	int remainder = x % y;
+ 	
+ 	//COMPUTE
+ 		cout << "Read;    " "x = 4         " << "y = 2" << endl << endl;
+  	//SUM
+ 	cout << "Sum: " << sum << endl;
+ 	cout << "   Solution: " << x << " + " << y <<" = " << sum << endl << endl;
+ 	//DIFFERENCE
+ 	cout << "Difference: " << difference << endl;
+ 	cout << "   Solution: " << x << " - " << y << " = " << difference << endl <<endl;
+ 	//PRODUCT
+ 	cout << "Product: " << product << endl;
+ 	cout << "   Solution: " << x << " x " << y << " = " << product << endl << endl;
+ 	//QUOTIENT
+ 	cout << "Quotient: " << quotient << endl;
+ 	cout << "   Solution: " << x << " / " << y << " = " << quotient << endl << endl;
+ 	//REMAINDER
+  	cout << "Remainder: " << remainder << endl;
+ 	cout << "   Solution: " << x << " % " << y << " = " << remainder << endl << endl;
+ 	
+ 		cout << "SUM        " << "  |  " << sum << endl; 
+ 		cout << "DIFFERENCE " << "  |  " << difference << endl;
+		cout << "PRODUCT    " << "  |  " << product << endl;
+		cout << "QUOTIENT   " << "  |  " << quotient << endl;
+		cout << "REMAINDER  " << "  |  " << remainder << endl; 
+ 	
+ 	return 0;
+ 	
+ }
