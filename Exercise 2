@@ -30,7 +30,8 @@ using namespace std;
  	//REMAINDER
   	cout << "Remainder: " << remainder << endl;
  	cout << "   Solution: " << x << " % " << y << " = " << remainder << endl << endl;
- 	
+
+                //ANSWERS
  		cout << "SUM        " << "  |  " << sum << endl; 
  		cout << "DIFFERENCE " << "  |  " << difference << endl;
 		cout << "PRODUCT    " << "  |  " << product << endl;
