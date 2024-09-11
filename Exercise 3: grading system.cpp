@@ -3,17 +3,7 @@
 using namespace std;
 int main () {
 	float Percentage_Grade;
-	string name1,name2,name3,name4,name5;
-	string program1,program2;
-	int year;
-	
-	//information
-	cout << "Name: ";
-		cin >> name1 >> name2 >> name3 >> name4; 
-	cout << "Program: ";
-		cin >> program1 >> program2;
-	cout << "Enter Year: ";
-		cin >> year;
+
 	//input of the Semestral Grade
 	cout << "Enter you Semestral Grade : " << endl;
  		cin >> Percentage_Grade;
