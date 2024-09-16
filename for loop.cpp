@@ -4,7 +4,7 @@ int main()
 {
 	
 	int i;
-	int j = 100000000;
+	int j = 10;
 	
 	for(i=0;i<=j;i++)
 	{
