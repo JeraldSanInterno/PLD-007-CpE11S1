@@ -1,0 +1,138 @@
+#include <iostream>
+#include <limits> // to std::numeric_limits
+using namespace std; // to declare  
+
+// Function prototypes
+void DrawBoard(char *spaces);
+void Player1Move(char *spaces, char player1, const string &player1Name);
+void Player2Move(char *spaces, char player2, const string &player2Name);
+bool IsWinner(char *spaces, char player);
+bool IsTie(char *spaces);
+
+int main() {
+    char spaces[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+    char player1 = 'X';
+    char player2 = 'O';
+    bool running = true;
+    bool player1Turn = true; // Use a boolean to switch turns
+    string player1Name;
+    string player2Name;
+
+    // Get player names
+    cout << "Enter the name of player 1 (X): ";
+    getline(cin, player1Name);
+    cout << "Enter the name of player 2 (O): ";
+    getline(cin, player2Name);
+
+    DrawBoard(spaces);
+    while (running) {
+        if (player1Turn) {
+            Player1Move(spaces, player1, player1Name);
+        } else {
+            Player2Move(spaces, player2, player2Name);
+        }
+
+        DrawBoard(spaces);
+
+        // Check for winner
+        if (IsWinner(spaces, player1)) {
+            cout << player1Name << " (X) wins!" << endl;
+            break;
+        }
+        if (IsWinner(spaces, player2)) {
+            cout << player2Name << " (O) wins!" << endl;
+            break;
+        }
+
+        // Check for tie
+        if (IsTie(spaces)) {
+            cout << "It's a tie!" << endl;
+            break;
+        }
+
+        // Switch turns
+        player1Turn = !player1Turn;
+    }
+
+    return 0;
+}
+
+void DrawBoard(char *spaces) {
+    cout << "    |    |    " << '\n';
+    cout << " " << spaces[0] << "  | " << spaces[1] << "  | " << spaces[2] << '\n';
+    cout << "----|----|----" << '\n';
+    cout << "    |    |    " << '\n';
+    cout << " " << spaces[3] << "  | " << spaces[4] << "  | " << spaces[5] << '\n';
+    cout << "----|----|----" << '\n';
+    cout << "    |    |    " << '\n';
+    cout << " " << spaces[6] << "  | " << spaces[7] << "  | " << spaces[8] << '\n';
+    cout << "    |    |    " << '\n';
+}
+
+void Player1Move(char *spaces, char player1, const string &player1Name) {
+    int number;
+    while (true) {
+        cout << player1Name << " (X), enter a number to place your marker (1-9): ";
+        cin >> number;
+
+        // Check for valid input
+        if (cin.fail() || number < 1 || number > 9) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number between 1 and 9." << endl;
+            continue;
+        }
+
+        number--; // Convert 1-9 input to 0-8 index
+        if (spaces[number] == ' ') {
+            spaces[number] = player1;
+            break;
+        } else {
+            cout << "Space already occupied. Choose another position." << endl;
+        }
+    }
+}
+
+void Player2Move(char *spaces, char player2, const string &player2Name) {
+    int number;
+    while (true) {
+        cout << player2Name << " (O), enter a number to place your marker (1-9): ";
+        cin >> number;
+
+        // Check for valid input
+        if (cin.fail() || number < 1 || number > 9) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number between 1 and 9." << endl;
+            continue;
+        }
+
+        number--; // Convert 1-9 input to 0-8 index
+        if (spaces[number] == ' ') {
+            spaces[number] = player2;
+            break;
+        } else {
+            cout << "Space already occupied. Choose another position." << endl;
+        }
+    }
+}
+
+bool IsWinner(char *spaces, char player) {
+    return ((spaces[0] == player && spaces[1] == player && spaces[2] == player) || // Row 1
+            (spaces[3] == player && spaces[4] == player && spaces[5] == player) || // Row 2
+            (spaces[6] == player && spaces[7] == player && spaces[8] == player) || // Row 3
+            (spaces[0] == player && spaces[3] == player && spaces[6] == player) || // Column 1
+            (spaces[1] == player && spaces[4] == player && spaces[7] == player) || // Column 2
+            (spaces[2] == player && spaces[5] == player && spaces[8] == player) || // Column 3
+            (spaces[0] == player && spaces[4] == player && spaces[8] == player) || // Diagonal 1
+            (spaces[2] == player && spaces[4] == player && spaces[6] == player));  // Diagonal 2
+}
+
+bool IsTie(char *spaces) {
+    for (int i = 0; i < 9; i++) {
+        if (spaces[i] == ' ') {
+            return false; // If any space is empty, it's not a tie
+        }
+    }
+    return true; // All spaces are filled
+}
