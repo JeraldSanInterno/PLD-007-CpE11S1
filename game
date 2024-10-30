@@ -1,30 +1,30 @@
 #include <iostream>
 #include <limits> // to std::numeric_limits
-using namespace std; // to declare  
+using namespace std; // to declare cout, cin, or vectors
 
 // Function prototypes
-void DrawBoard(char *spaces);
-void Player1Move(char *spaces, char player1, const string &player1Name);
-void Player2Move(char *spaces, char player2, const string &player2Name);
-bool IsWinner(char *spaces, char player);
-bool IsTie(char *spaces);
+void DrawBoard(char *spaces); //displays the current state of the game board
+void Player1Move(char *spaces, char player1, const string &player1Name); //handles input for Player 1's move
+void Player2Move(char *spaces, char player2, const string &player2Name); //handles input for Player 2's move
+bool IsWinner(char *spaces, char player); //checks if a player has won
+bool IsTie(char *spaces); //checks if the game has resulted in a tie
 
 int main() {
-    char spaces[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
-    char player1 = 'X';
-    char player2 = 'O';
-    bool running = true;
-    bool player1Turn = true; // Use a boolean to switch turns
-    string player1Name;
-    string player2Name;
+    char spaces[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; //using char to store a single number or letter
+    char player1 = 'X'; //assigning player 1 symbol 
+    char player2 = 'O'; //assigning player 2 symbol 
+    bool running = true; //assigning true in boolean to keep the game running
+    bool player1Turn = true, player2Turn = false; // Use a boolean to switch turns true=player 1, false=player 2
+    string player1Name, player2Name; // store the players name
+    
 
-    // Get player names
+    // Get the names of the players
     cout << "Enter the name of player 1 (X): ";
     getline(cin, player1Name);
     cout << "Enter the name of player 2 (O): ";
     getline(cin, player2Name);
 
-    DrawBoard(spaces);
+    DrawBoard(spaces); //shows the initial empty game board
     while (running) {
         if (player1Turn) {
             Player1Move(spaces, player1, player1Name);
@@ -52,6 +52,7 @@ int main() {
 
         // Switch turns
         player1Turn = !player1Turn;
+        player2Turn = !player2Turn;
     }
 
     return 0;
