@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+
+double hypotenuse(double side1, double side2) {
+    return std::sqrt((side1 * side1) + (side2 * side2));
+}
+
+int main() {
+	using namespace std;
+    double side1, side2;
+
+    cout << "Enter the length of the first side: ";
+    cin >> side1;
+    cout << "Enter the length of the second side: ";
+    cin >> side2;
+
+    double hypo = hypotenuse(side1, side2);
+    cout << "The length of the hypotenuse is: " << hypo << std::endl;
+
+    return 0;
+}
