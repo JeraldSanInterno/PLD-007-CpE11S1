@@ -1,0 +1,39 @@
+#include <iostream>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+float divide(int a, int b) {
+    if (b != 0)
+        return static_cast<float>(a) / b;
+    else {
+        std::cerr << "Error: Division by zero is not allowed!" << std::endl;
+        return 0;
+    }
+}
+
+int main() {
+	using namespace std;
+    int num1, num2;
+    cout << "Enter the first integer: ";
+    cin >> num1;
+    cout << "Enter the second integer: ";
+    cin >> num2;
+
+    cout << "Addition: " << add(num1, num2) << std::endl;
+    cout << "Subtraction: " << subtract(num1, num2) << std::endl;
+    cout << "Multiplication: " << multiply(num1, num2) << std::endl;
+    cout << "Division: " << divide(num1, num2) << std::endl;
+
+    return 0;
+    
+}
