@@ -1,0 +1,16 @@
+#include <iostream>
+double computeCubeArea(double sideLength) {
+    return sideLength * sideLength * sideLength;
+}
+
+int main() {
+	using namespace std;
+    double side;
+    cout << "Enter the side length of the cube: ";
+    cin >> side;
+
+    double area = computeCubeArea(side);
+    cout << "The area of the cube is: " << area << endl;
+
+    return 0;
+}
