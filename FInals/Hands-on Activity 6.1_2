@@ -1,0 +1,35 @@
+#include <iostream>
+
+float fahrenheitToCelsius(float fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+float celsiusToFahrenheit(float celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+
+int main() {
+	using namespace std;
+    float temperature;
+    int choice;
+
+    cout << "Choose the conversion type:\n";
+    cout << "1. Fahrenheit to Celsius\n";
+    cout << "2. Celsius to Fahrenheit\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        cout << "Enter temperature in Fahrenheit: ";
+        cin >> temperature;
+        cout << "Temperature in Celsius: " << fahrenheitToCelsius(temperature) << "°C\n";
+    } else if (choice == 2) {
+        cout << "Enter temperature in Celsius: ";
+        cin >> temperature;
+        cout << "Temperature in Fahrenheit: " << celsiusToFahrenheit(temperature) << "°F\n";
+    } else {
+        cout << "Invalid choice. Please restart the program." << endl;
+    }
+
+    return 0;
+}
